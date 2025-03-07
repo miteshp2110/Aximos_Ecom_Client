@@ -11,7 +11,7 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { useCart } from "@/lib/cart-context"
 import { formatCurrency } from "@/lib/utils"
-
+import { getCartSet } from "@/lib/utils";
 interface Product {
   id: number
   name: string
@@ -23,7 +23,7 @@ interface Product {
 }
 
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
-  const cartSet: Set<number> =new Set(JSON.parse(localStorage.getItem("cartSet") || "[]"));
+  const cartSet: Set<number> = getCartSet()
   const [product, setProduct] = useState<Product | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [selectedImage, setSelectedImage] = useState(0)

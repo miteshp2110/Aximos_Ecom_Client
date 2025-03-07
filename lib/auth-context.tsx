@@ -94,6 +94,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setIsLoading(false)
   }, [])
 
+  
+
   // Protect admin routes
   useEffect(() => {
     if (!isLoading && pathname?.startsWith("/admin") && pathname !== "/admin/login") {

@@ -19,6 +19,8 @@ import { useCart } from "@/lib/cart-context"
 import { formatCurrency, getImageUrl } from "@/lib/utils"
 import { set } from "date-fns"
 
+import {getCartSet} from '../../lib/utils'
+
 
 interface Product {
   id: number
@@ -36,7 +38,7 @@ interface Category {
 }
 
 export default function ProductsPage() {
-  const cartSet: Set<number> =new Set(JSON.parse(localStorage.getItem("cartSet") || "[]"));
+  const cartSet: Set<number> = getCartSet()
   const searchParams = useSearchParams()
   const categoryParam = searchParams.get("category")
   const searchParam = searchParams.get("search")

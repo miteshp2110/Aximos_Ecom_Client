@@ -24,11 +24,14 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
 
+
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const { toast } = useToast()
   const { user, getToken } = useAuth()
+
+ 
 
   // Load cart from localStorage or API
   useEffect(() => {
@@ -80,11 +83,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     loadCart()
   }, [user, getToken])
 
-  useEffect(()=>{
-    // console.log("Updated cart data")
-    // console.log("Updateddd: ",cartItems)
-  },[cartItems])
-
+ 
   // Save cart to localStorage whenever it changes
   useEffect(() => {
     if (!isLoading) {
@@ -94,6 +93,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     }
   }, [cartItems, isLoading])
+
+  
 
   const addToCart = async (product: CartItem) => {
 
