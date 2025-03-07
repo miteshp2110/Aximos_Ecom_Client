@@ -34,7 +34,7 @@ export default function Home() {
     if(jwt){
       // console.log(jwt)
       localStorage.setItem("token", jwt)
-      window.location.href = "http://localhost:3000"
+      window.location.href = `${process.env.NEXT_PUBLIC_CLIENT_URL}`
     }
     
     
