@@ -63,7 +63,7 @@ export default function Home() {
         <section className="relative h-screen flex items-center">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/placeholder.svg?height=1080&width=1920"
+              src="/ecom.jpg?height=1080&width=1920"
               alt="Luxury Digital Assets"
               fill
               className="object-cover"
